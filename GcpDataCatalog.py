@@ -160,9 +160,14 @@ def set_tag(datacatalog: datacatalog_v1.DataCatalogClient,
     return tag
 
 
-def set_metadata(datacatalog, project_id, location, tag_template_name, tag_template_display_name, entry_group_id,
-                 entry_id, entry_display_name, user_specified_type, user_specified_system, dataset_id, table_id,
+def set_metadata(datacatalog, project_id, location, tag_template_name, tag_template_display_name, dataset_id, table_id,
                  metadata):
+    entry_group_id = dataset_id
+    entry_id = 'renewalytics_entry_{}_{}'.format(dataset_id,table_id)
+    entry_display_name = '{}_{}'.format(dataset_id, table_id)
+    user_specified_type = 'Table'
+    user_specified_system = 'BigQuery'
+
     tag_template = get_tag_template(datacatalog, project_id, location, tag_template_name, tag_template_display_name)
 
     entry = get_entry(datacatalog, project_id, location,

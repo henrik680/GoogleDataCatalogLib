@@ -106,15 +106,9 @@ def test2b():
     tag_template_display_name = 'Data Import'
     tag_template_name = 'data_import'
     location = 'eu'
-    entry_group_id = dataset_id
-    entry_id = 'renewalytics_entry_{}_{}'.format(dataset_id,table_id)
-    entry_display_name = '{}_{}'.format(dataset_id, table_id)
-    user_specified_type = 'Table'
-    user_specified_system = 'BigQuery'
     metadata = {"code_module": "<manual-import>", "language": "sv"}
     client = datacatalog_v1.DataCatalogClient()
-    set_metadata(client, project_id, location, tag_template_name, tag_template_display_name, entry_group_id,
-                 entry_id, entry_display_name, user_specified_type, user_specified_system, dataset_id, table_id,
+    set_metadata(client, project_id, location, tag_template_name, tag_template_display_name, dataset_id, table_id,
                  metadata)
 
 
