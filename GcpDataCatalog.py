@@ -2,6 +2,8 @@ from google.cloud import datacatalog_v1
 from google.api_core.exceptions import NotFound, PermissionDenied
 import logging
 
+# TODO - Create python package
+
 
 logging.getLogger().setLevel(logging.INFO)
 
